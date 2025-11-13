@@ -1,0 +1,21 @@
+[Unit]
+Description=UMKM AI API Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/umkm-ai
+Environment="PATH=/var/www/umkm-ai/.venv/bin"
+Environment="GOOGLE_API_KEY=YOUR_API_KEY_HERE"
+Environment="GOOGLE_GENAI_API_KEY=YOUR_API_KEY_HERE"
+ExecStart=/var/www/umkm-ai/.venv/bin/uvicorn server:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
+
