@@ -43,7 +43,8 @@ logs/
 # Database
 faiss_db/
 chroma_db/
-temp/*.pdf
+temp/*
+!temp/*.pdf
 !temp/.gitkeep
 
 # OS
